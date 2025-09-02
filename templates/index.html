@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake Product Review Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+
+
+</head>
+<body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        <h1>Fake Product Review Detector</h1>
+    </div>
+    <div class="container">
+        <form method="post">
+            <label for="review"><b>Paste or write your product review below:</b></label><br>
+            <textarea name="review" id="review" placeholder="Enter the product review here..."></textarea><br>
+            <input type="submit" value="Check Review">
+        </form>
+        {% if prediction %}
+            <div class="result">
+                <strong>Result:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
